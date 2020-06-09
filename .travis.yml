@@ -5,10 +5,20 @@ sudo: false
 cache: packages
 warnings_are_errors: true
 
+addons:
+  apt:
+    packages:
+    - libcurl4-openssl-dev
+    - libxml2-dev
+    - libfftw3-dev
+    - libgsl0-dev
+    - mesa-common-dev
+    - libglu1-mesa-dev
+    - devscripts
+    - libomp-dev
+    - libcgal-dev
+
 notifications:   
   email:   
     on_success: change   
     on_failure: change
-
-before_install:
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install libcgal-dev libglu1-mesa-dev mesa-common-dev; fi
